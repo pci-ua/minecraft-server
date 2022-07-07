@@ -1,0 +1,25 @@
+version: '3'
+
+volumes:
+  server-data: {}
+
+services:
+  paper:
+    build:
+      context: .
+      dockerfile: PaperServer.Dockerfile
+    ports:
+      - '25565:25565' # Minecraft Java
+      - '19132:19132' # Minecraft Bedrock
+      - '80:80'       # Web server
+    volumes:
+      - ${PWD}/bukkit.yml:/home/minecraft/server/bukkit.yml
+      - ${PWD}/commands.yml:/home/minecraft/server/commands.yml
+      - ${PWD}/help.yml:/home/minecraft/server/help.yml
+      - ${PWD}/paper.yml:/home/minecraft/server/paper.yml
+      - ${PWD}/permissions.yml:/home/minecraft/server/permissions.yml
+      - ${PWD}/server.properties:/home/minecraft/server/server.properties
+    environment:
+      MCSERVER_MAX_MEMORY: 2
+    stdin_open: true
+    tty: true
