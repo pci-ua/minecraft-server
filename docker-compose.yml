@@ -16,9 +16,9 @@ services:
       - ${PWD}/bukkit.yml:/home/minecraft/server/bukkit.yml
       - ${PWD}/commands.yml:/home/minecraft/server/commands.yml
       - ${PWD}/help.yml:/home/minecraft/server/help.yml
-      - ${PWD}/paper.yml:/home/minecraft/server/paper.yml
       - ${PWD}/permissions.yml:/home/minecraft/server/permissions.yml
       - ${PWD}/server.properties:/home/minecraft/server/server.properties
+      - ${PWD}/config:/home/minecraft/server/config
     environment:
       MCSERVER_MAX_MEMORY: 2
     stdin_open: true
